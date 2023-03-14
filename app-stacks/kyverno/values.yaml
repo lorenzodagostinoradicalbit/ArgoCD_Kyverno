@@ -8,6 +8,6 @@ kyverno:
   reporter:
     targetRevision: 2.17.0
     metrics:
-      enabled: true
+      enabled: false
     rest:
-      enabled: true
+      enabled: false

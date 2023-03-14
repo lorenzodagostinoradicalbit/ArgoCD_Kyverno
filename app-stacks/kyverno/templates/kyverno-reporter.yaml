@@ -18,6 +18,8 @@ spec:
           enabled: {{ .Values.kyverno.reporter.metrics.enabled }}
         rest:
           enabled: {{ .Values.kyverno.reporter.rest.enabled }}
+        api:
+          enabled: true
   syncPolicy:
     automated:
       prune: true
