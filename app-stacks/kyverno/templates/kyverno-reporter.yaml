@@ -11,7 +11,7 @@ spec:
   source:
     chart: policy-reporter
     repoURL: https://kyverno.github.io/policy-reporter
-    targetRevision: {{ .Values.kyverno.reporter.targetRevision }}
+    targetRevision: {{ .Values.kyverno.reporter.targetRevision | quote }}
     helm:
       values: |
         metrics:

@@ -20,6 +20,12 @@ spec:
           engine:
             targetRevision: {{ .Values.kyverno.engine.targetRevision }}
             replicaCount: {{ .Values.kyverno.engine.replicaCount }}
+          reporter:
+            metrics:
+              enabled: {{ Values.kyverno.reporter.metrics.enabled }}
+            rest:
+              enabled: {{ Values.kyverno.reporter.rest.enabled }}
+            targetRevision: {{ Values.kyverno.reporter.targetRevision }}
   syncPolicy:
     automated:
       prune: true

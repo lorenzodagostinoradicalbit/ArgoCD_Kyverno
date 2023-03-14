@@ -10,3 +10,9 @@ kyverno:
   engine:
     targetRevision: 2.6.0
     replicaCount: 1
+  reporter:
+    metrics:
+      enabled: false
+    rest:
+      enabled: false
+    targetRevision: 2.17.0
