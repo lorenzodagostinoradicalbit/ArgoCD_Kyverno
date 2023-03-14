@@ -12,15 +12,15 @@ spec:
     chart: policy-reporter
     repoURL: https://kyverno.github.io/policy-reporter
     # targetRevision: 2.6.0??
+    helm:
+      values:
+        metrics:
+          enabled: {{ .Values.kyverno.reporter.metrics.enabled }}
+        rest:
+          enabled: {{ .Values.kyverno.reporter.rest.enabled }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  helm:
-    values:
-      metrics:
-        enabled: {{ .Values.kyverno.reporter.metrics.enabled }}
-      rest:
-        enabled: {{ .Values.kyverno.reporter.rest.enabled }}
