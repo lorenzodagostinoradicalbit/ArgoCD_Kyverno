@@ -15,3 +15,5 @@ kyverno:
       enabled: false
     ui:
       enabled: false
+      plugins:
+        kyverno: false

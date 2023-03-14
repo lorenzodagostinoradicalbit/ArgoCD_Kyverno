@@ -22,6 +22,8 @@ spec:
           enabled: {{ .Values.kyverno.reporter.api.enabled }}
         ui:
           enabled: {{ .Values.kyverno.reporter.ui.enabled }}
+          plugins:
+            kyverno {{ .Values.kyverno.reporter.ui.plugins.kyverno }}
   syncPolicy:
     automated:
       prune: true

@@ -20,3 +20,5 @@ kyverno:
       enabled: true
     ui:
       enabled: true
+      plugins:
+        kyverno: true
