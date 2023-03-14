@@ -22,9 +22,23 @@ spec:
         global:
           targetRevision: {{ .Values.global.targetRevision | quote }}
         kyverno:
-          reportsControl:
-            enabled: true
-            useKyvernoPlugin: true
+          engine:
+            targetRevision: {{ .Values.kyverno.engine.targetRevision }}
+            replicaCount: {{ .Values.kyverno.engine.replicaCount }}
+          reporter:
+            targetRevision: {{ .Values.kyverno.reporter.targetRevision }}
+            metrics:
+              enabled: {{ .Values.kyverno.reporter.metrics.enabled }}
+            rest:
+              enabled: {{ .Values.kyverno.reporter.rest.enabled }}
+            api:
+              enabled: {{ .Values.kyverno.reporter.api.enabled }}
+            ui:
+              enabled: {{ .Values.kyverno.reporter.ui.enabled }}
+              plugins:
+                kyverno: {{ .Values.kyverno.reporter.ui.plugins.kyverno }}
+            kyvernoPlugin:
+              enabled: {{ .Values.kyverno.reporter.kyvernoPlugin.enabled }}
   syncPolicy:
     automated:
       prune: true

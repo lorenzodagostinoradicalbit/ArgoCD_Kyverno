@@ -5,22 +5,17 @@ kyverno:
   engine:
     targetRevision: 2.6.0
     replicaCount: 1
-  reportsControl:
-    enabled: ""
-    ui:
-      enabled: ""
-      useKyvernoPlugin: ""
   reporter:
     targetRevision: 2.17.0
     metrics:
-      enabled: true
+      enabled: false
     rest:
-      enabled: true
+      enabled: false
     api:
-      enabled: true
+      enabled: false
     ui:
-      enabled: true
+      enabled: false
       plugins:
-        kyverno: true
+        kyverno: false
     kyvernoPlugin:
-      enabled: true
+      enabled: false
