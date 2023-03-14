@@ -4,6 +4,13 @@ metadata:
   name: kyverno
   namespace: argocd
 spec:
+  ignoreDifferences:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kyverno
+    namespace: kyverno
+    jsonPointers:
+    - /rules
   destination:
     namespace: kyverno
     server: https://kubernetes.default.svc
