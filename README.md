@@ -27,3 +27,19 @@ data:
     # disables status field diffing in specified resource types
     ignoreAggregatedRoles: true
 ```
+
+Accordig to [helm README](https://github.com/kyverno/kyverno/tree/main/charts/kyverno) it is needed to add also:
+
+```yaml
+resource.exclusions: |
+      - apiGroups:
+          - kyverno.io
+        kinds:
+          - AdmissionReport
+          - BackgroundScanReport
+          - ClusterAdmissionReport
+          - ClusterBackgroundScanReport
+        clusters:
+          - '*'
+```
+in the ArgoCD ConfigMap
