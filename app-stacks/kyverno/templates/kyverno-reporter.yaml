@@ -1,4 +1,4 @@
-{{- if or (eq .Values.kyverno.reportsControl.enabled true) (eq .Values.kyverno.reportsControl.ui.enabled true)}}
+{{- if or .Values.kyverno.reportsControl.enabled .Values.kyverno.reportsControl.ui.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -21,12 +21,12 @@ spec:
           enabled: {{ .Values.kyverno.reporter.rest.enabled }}
         api:
           enabled: {{ .Values.kyverno.reporter.api.enabled }}
-        {{- if eq .Values.kyverno.reportsControl.ui.enabled true }}
+        {{- if .Values.kyverno.reportsControl.ui.enabled }}
         ui:
           enabled: {{ .Values.kyverno.reporter.ui.enabled }}
           plugins:
             kyverno: {{ .Values.kyverno.reportsControl.ui.useKyvernoPlugin }}
-        {{ -if eq .Values.kyverno.reportsControl.ui.useKyvernoPlugin true }}
+        {{ -if .Values.kyverno.reportsControl.ui.useKyvernoPlugin }}
         kyvernoPlugin:
           enabled: {{ .Values.kyverno.reporter.kyvernoPlugin.enabled }}
         {{- end }}
