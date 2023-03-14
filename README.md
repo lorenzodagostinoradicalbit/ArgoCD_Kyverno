@@ -12,3 +12,18 @@ In "environment" kyverno.yaml is an ArgoCD application pointing in this reposito
 - **/app-stacks/kyverno-app.yaml** : ArgoCD Application that installs kyverno engine
 - **/app-stacks/kyverno-monitor.yaml**: ArgoCD Application that installs the monitor
 - **/app-stacks/kyverno-policies.yaml**: ArgoCD Application that installs the policies (inside the components folder)
+
+Argo try to update continuously the ClosterRole created by Kyverno. To disable this behaviour:
+
+```bash
+k edit configmaps -n argocd argocd-cm -o yaml 
+```
+
+and add
+
+```yaml
+data:
+  resource.compareoptions: |
+    # disables status field diffing in specified resource types
+    ignoreAggregatedRoles: true
+```

@@ -22,3 +22,5 @@ kyverno:
       enabled: true
       plugins:
         kyverno: true
+    kyvernoPlugin:
+      enabled: true
