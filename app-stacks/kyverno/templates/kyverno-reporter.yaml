@@ -19,9 +19,9 @@ spec:
         rest:
           enabled: {{ .Values.kyverno.reporter.rest.enabled }}
         api:
-          enabled: true
+          enabled: {{ .Values.kyverno.reporter.api.enabled }}
         ui:
-          enabled: true
+          enabled: {{ .Values.kyverno.reporter.ui.enabled }}
   syncPolicy:
     automated:
       prune: true

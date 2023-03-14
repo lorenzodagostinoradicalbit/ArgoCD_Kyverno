@@ -11,3 +11,7 @@ kyverno:
       enabled: false
     rest:
       enabled: false
+    api:
+      enabled: false
+    ui:
+      enabled: false

@@ -11,8 +11,12 @@ kyverno:
     targetRevision: 2.6.0
     replicaCount: 1
   reporter:
+    targetRevision: 2.17.0
     metrics:
       enabled: true
     rest:
       enabled: true
-    targetRevision: 2.17.0
+    api:
+      enabled: true
+    ui:
+      enabled: true
