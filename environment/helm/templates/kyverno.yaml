@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyverno-stack
+  namespace: argocd
+spec:
+  destination:
+    namespace: kyverno
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_Kyverno
+    targetRevision: {{ .Values.global.targetRevision | quote }}
+    path: app-stacks/kyverno
+    helm:
+      values: |
+        global:
+          targetRevision: {{ .Values.global.targetRevision | quote }}
+        kyverno:
+          engine:
+            targetRevision: {{ .Values.kyverno.engine.targetRevision }}
+            replicaCount: {{ .Values.kyverno.engine.replicaCount }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
