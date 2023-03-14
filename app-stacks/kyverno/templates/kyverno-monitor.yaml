@@ -13,7 +13,7 @@ spec:
     repoURL: https://kyverno.github.io/policy-reporter
     # targetRevision: 2.6.0??
     helm:
-      values:
+      values: |
         metrics:
           enabled: {{ .Values.kyverno.reporter.metrics.enabled }}
         rest:

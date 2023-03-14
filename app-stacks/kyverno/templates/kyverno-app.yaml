@@ -13,7 +13,7 @@ spec:
     repoURL: https://kyverno.github.io/kyverno
     targetRevision: {{ .Values.kyverno.engine.targetRevision }}
     helm:
-      values:
+      values: |
         replicaCount: {{ .Values.kyverno.engine.replicaCount }}
   syncPolicy:
     automated:
