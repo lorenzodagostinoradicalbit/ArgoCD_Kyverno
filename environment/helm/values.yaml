@@ -1,0 +1,12 @@
+global:
+  environment: local
+  targetRevision: develop
+  storageClass: default
+  images:
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+
+kyverno:
+  engine:
+    targetRevision: 2.6.0
+    replicaCount: 1
