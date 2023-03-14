@@ -20,6 +20,8 @@ spec:
           enabled: {{ .Values.kyverno.reporter.rest.enabled }}
         api:
           enabled: true
+        ui:
+          enabled: true
   syncPolicy:
     automated:
       prune: true
