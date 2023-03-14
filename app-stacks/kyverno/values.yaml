@@ -5,10 +5,9 @@ kyverno:
   engine:
     targetRevision: 2.6.0
     replicaCount: 1
-
   reporter:
     targetRevision: 2.17.0
     metrics:
-      enabled: false
+      enabled: true
     rest:
-      enabled: false
+      enabled: true
