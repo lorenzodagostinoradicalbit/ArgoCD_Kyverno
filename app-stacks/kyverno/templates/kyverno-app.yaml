@@ -14,7 +14,11 @@ spec:
     targetRevision: {{ .Values.kyverno.engine.targetRevision }}
     helm:
       values: |
-        replicaCount: {{ .Values.kyverno.engine.replicaCount }}
+        {{- if .Values.kyverno.engine.highAvailability.enabled }}
+        replicaCount: {{ .Values.kyverno.engine.highAvailability.replicas | default 3 }}
+        {{- else -}}
+        replicaCount: {{ .Values.kyverno.engine.replicaCount | default 1 }}
+        {{- end -}}
   syncPolicy:
     automated:
       prune: true

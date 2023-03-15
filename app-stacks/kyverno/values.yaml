@@ -4,12 +4,19 @@ global:
 kyverno:
   engine:
     targetRevision: 2.6.0
+    # kyverno high availability doc: https://kyverno.io/docs/installation/#high-availability
+    highAvailability:
+      enabled: false
+      # Min replicas for high availability is 3
+      replicas: 3
+    # used when high availability is set to false
     replicaCount: 1
   reportsControl:
     enabled: ""
     ui:
       enabled: ""
       useKyvernoPlugin: ""
+  # policy-reporter-ui helm doc: https://kyverno.github.io/policy-reporter/guide/helm-chart-core
   reporter:
     targetRevision: 2.17.0
     metrics:

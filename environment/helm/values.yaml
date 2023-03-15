@@ -8,7 +8,8 @@ global:
 
 kyverno:
   engine:
-    replicaCount: 1
+    highAvailability:
+      enabled: true
   reportsControl:
     enabled: true
     ui:

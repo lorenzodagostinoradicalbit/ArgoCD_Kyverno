@@ -22,10 +22,14 @@ spec:
         global:
           targetRevision: {{ .Values.global.targetRevision | quote }}
         kyverno:
+          engine:
+            highAvailability:
+              enabled: {{ .Values.kyverno.engine.highAvailability.enabled }}
           reportsControl:
+            enabled: {{ .Values.kyverno.reportsControl.enabled }}
             ui:
-              enabled: true
-              useKyvernoPlugin: true
+              enabled: {{ .Values.kyverno.reportsControl.ui.enabled }}
+              useKyvernoPlugin: {{ .Values.kyverno.reportsControl.ui.useKyvernoPlugin }}
   syncPolicy:
     automated:
       prune: true
