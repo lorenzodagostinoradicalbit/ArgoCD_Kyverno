@@ -9,7 +9,7 @@ global:
 kyverno:
   engine:
     highAvailability:
-      enabled: true
+      enabled: false
   reportsControl:
     enabled: true
     ui:
