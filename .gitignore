@@ -3,3 +3,6 @@
 
 # backups
 *.bak
+
+# Node
+node_modules/
