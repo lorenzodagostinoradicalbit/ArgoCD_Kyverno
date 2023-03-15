@@ -16,9 +16,9 @@ spec:
       values: |
         {{- if .Values.kyverno.engine.highAvailability.enabled }}
         replicaCount: {{ .Values.kyverno.engine.highAvailability.replicas | default 3 }}
-        {{- else -}}
+        {{- else }}
         replicaCount: {{ .Values.kyverno.engine.replicaCount | default 1 }}
-        {{- end -}}
+        {{- end }}
   syncPolicy:
     automated:
       prune: true
