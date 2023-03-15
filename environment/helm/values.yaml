@@ -14,4 +14,4 @@ kyverno:
     enabled: true
     ui:
       enabled: true
-      useKyvernoPlugin: false
+      useKyvernoPlugin: true
