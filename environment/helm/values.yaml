@@ -6,6 +6,7 @@ global:
     pullPolicy: IfNotPresent
     pullSecrets: []
 
+# kyverno
 kyverno:
   engine:
     highAvailability:
@@ -15,3 +16,8 @@ kyverno:
     ui:
       enabled: true
       useKyvernoPlugin: true
+
+# cloudnative-pg
+cnpg:
+  namespace: cnpg-system
+  targetRevision: cloudnative-pg-v0.17.0
