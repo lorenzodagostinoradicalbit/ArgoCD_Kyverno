@@ -3,6 +3,10 @@ enable:
     enrichment: true
 
 environment: DEV
+namespaces:
+  dashboard: snaitech
+  flink: flink
+  kafka: kafka
 
 # cloudnative-pg
 cnpg:
