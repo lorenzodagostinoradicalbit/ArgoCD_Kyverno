@@ -1,0 +1,35 @@
+# installa l'operatore
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cloudnative-pg/charts.git
+    targetRevision: {{ .Values.cnpg.targetRevision | quote }}
+    path: charts/cloudnative-pg
+    helm:
+      version: v3
+      values: |
+        nameOverride: cloudnative-pg
+        fullnameOverride: cloudnative-pg
+        crds:
+          create: true
+        webhook:
+          mutating:
+            create: false
+          validating:
+            create: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ lower .Values.cnpg.namespace }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

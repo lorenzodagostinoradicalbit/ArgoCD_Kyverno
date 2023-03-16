@@ -1,0 +1,13 @@
+enable:
+  ingestion:
+    enrichment: true
+
+environment: DEV
+
+# cloudnative-pg
+cnpg:
+  namespace: cnpg-system
+  targetRevision: cloudnative-pg-v0.17.0
+  backup:
+    enabled: true
+    gcloudBucket: "test"
