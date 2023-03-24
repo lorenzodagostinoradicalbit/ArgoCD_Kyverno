@@ -1,3 +1,7 @@
+# global configurations
+global:
+  targetRevision: cnpg-develop
+
 # cloudnative-pg
 cnpg:
   namespace: cnpg-system
