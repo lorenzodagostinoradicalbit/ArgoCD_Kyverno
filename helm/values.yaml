@@ -15,7 +15,7 @@ psqlCluster:
     backup:
       enabled: true
       gcpConfig:
-        bucket: gs://postgresql-operators-backup-test
+        bucket: postgresql-operators-backup-test
         credentialsSecret:
           name: gcp-storage-auth
           key: gcp.json
