@@ -3,3 +3,6 @@
 
 # backups
 *.bak
+
+# local testing stuffs
+local
