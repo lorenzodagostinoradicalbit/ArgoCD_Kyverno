@@ -1,0 +1,10 @@
+# global configurations
+global:
+  targetRevision: develop
+# environment configurations
+environment: DEV
+namespaces:
+  flink: flink
+enable:
+  ingestion:
+    enrichment: true
