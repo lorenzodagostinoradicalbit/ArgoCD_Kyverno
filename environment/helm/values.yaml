@@ -1,0 +1,4 @@
+# cloudnative-pg
+cnpg:
+  namespace: cnpg-system
+  targetRevision: cloudnative-pg-v0.17.0
