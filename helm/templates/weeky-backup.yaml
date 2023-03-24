@@ -9,7 +9,7 @@ spec:
   immediate: true
   suspend: false
   schedule: "0 0 0 * * 0" # https://pkg.go.dev/github.com/robfig/cron#hdr-CRON_Expression_Format:~:text=between%20Sat/Sun%20%20%7C-,0%200%200%20*%20*%200,-%40daily%20(or%20%40midnight
-  backupOwnerReference: self
+  backupOwnerReference: cluster
   cluster:
     name: {{ lower .Values.environment }}-enrichment-psql
 {{- end }}
