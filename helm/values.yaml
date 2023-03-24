@@ -8,3 +8,15 @@ namespaces:
 enable:
   ingestion:
     enrichment: true
+
+# postgresql cluster configuration
+psqlCluster:
+  config:
+    backup:
+      enabled: true
+      gcpConfig:
+        bucket: gs://postgresql-operators-backup-test
+        credentialsSecret:
+          name: gcp-storage-auth
+          key: gcp.json
+      retentionPolicy: "30d"

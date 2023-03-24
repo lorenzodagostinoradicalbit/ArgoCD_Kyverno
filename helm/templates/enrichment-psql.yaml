@@ -8,5 +8,23 @@ spec:
   instances: 1
   primaryUpdateStrategy: unsupervised
   storage:
-    size: 5Gi
+    size: 20Gi
+
+  {{- if .Values.psqlCluster.config.backup.enabled }}
+  # Backup config
+  backup:
+    barmanObjectStore:
+      destinationPath: gs://{{ required "gcs bucket is required." .Values.psqlCluster.config.backup.gcpConfig.bucket }}/{{ lower .Values.environment }}
+      googleCredentials:
+        applicationCredentials:
+          name: {{ required "gcs credentials secret is required." .Values.psqlCluster.config.backup.gcpConfig.credentialsSecret.name }}
+          key: {{ required "gcs secret key is required." .Values.psqlCluster.config.backup.gcpConfig.credentialsSecret.key }}
+    {{- if .Values.psqlCluster.config.backup.retentionPolicy }}
+    {{- if mustRegexMatch "^[0-9]{2}$*(d|w|m)$" .Values.psqlCluster.config.backup.retentionPolicy }}
+    retentionPolicy: {{ .Values.psqlCluster.config.backup.retentionPolicy }}
+    {{- else }}
+    {{- fail "retention policy must match the following regular expression: ^[0-9]{2}$*(d|w|m)$. e.g. \"30d\"" }}
+    {{- end }}
+    {{- end }}
+  {{- end }}
 {{- end }}
