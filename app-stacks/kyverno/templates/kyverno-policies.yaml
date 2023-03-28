@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_Kyverno
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
     targetRevision: {{ .Values.global.targetRevision | quote }}
     path: components/kyverno-policies
   syncPolicy:
