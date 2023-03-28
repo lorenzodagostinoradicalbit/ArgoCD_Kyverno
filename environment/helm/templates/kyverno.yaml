@@ -1,3 +1,4 @@
+{{- if .Values.kyverno.enable }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -14,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_Kyverno
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
     targetRevision: {{ .Values.global.targetRevision | quote }}
     path: app-stacks/kyverno
     helm:
@@ -36,3 +37,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+{{- end }}

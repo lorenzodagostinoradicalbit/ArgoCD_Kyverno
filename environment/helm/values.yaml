@@ -8,6 +8,7 @@ global:
 
 # kyverno
 kyverno:
+  enable: true
   engine:
     highAvailability:
       enabled: false
@@ -19,5 +20,6 @@ kyverno:
 
 # cloudnative-pg
 cnpg:
+  enabled: false
   namespace: cnpg-system
   targetRevision: cloudnative-pg-v0.17.0
