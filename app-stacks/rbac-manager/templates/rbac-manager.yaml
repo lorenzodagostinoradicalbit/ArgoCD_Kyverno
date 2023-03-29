@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rbac-manager
+  namespace: argocd
+spec:
+  destination:
+    namespace: rbac-manager
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: rbac-manager
+    repoURL: https://charts.fairwinds.com/stable
+    targetRevision: {{ .Values.rbacManager.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true

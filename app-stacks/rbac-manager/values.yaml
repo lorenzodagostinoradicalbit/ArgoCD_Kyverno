@@ -1,0 +1,5 @@
+global:
+  targetRevision: ""
+
+rbacManager:
+  targetRevision: 1.15.3

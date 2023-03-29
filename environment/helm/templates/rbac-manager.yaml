@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rbac-manager-stack
+  namespace: argocd
+spec:
+  destination:
+    namespace: rbac-manager
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
+    targetRevision: {{ .Values.global.targetRevision | quote }}
+    path: app-stacks/rbac-manager
+    helm:
+      values: |
+        global:
+          targetRevision: {{ .Values.global.targetRevision | quote }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
