@@ -7,7 +7,7 @@ rbacBindings:
   - name: cluster-editors
     subjects:
       - kind: Group
-        name: kubernetes-editors
+        name: kubernetes-editors@example.com
 {{- $namespaceLen := len .Values.groups.kubernetesEditors.namespaces }}
 {{- if or .Values.groups.kubernetesEditors.clusterWide ( eq $namespaceLen 0 ) }}
     clusterRoleBindings:
