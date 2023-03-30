@@ -1,0 +1,22 @@
+# RBAC configuration for kubernetes-log-viewer Google group
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ required "Group name is required." .Values.groups.kubernetesLogViewers.gcpGroupName }}
+rbacBindings:
+  - name: {{ required "Cluster Role name is required." .Values.groups.kubernetesLogViewers.roleName }}
+    subjects:
+      - kind: Group
+        name: {{ .Values.groups.kubernetesLogViewers.gcpGroupName }}
+{{- $namespaceLen := len .Values.groups.kubernetesLogViewer.namespaces }}
+{{- if or .Values.groups.kubernetesLogViewers.clusterWide ( eq $namespaceLen 0 ) }}
+    clusterRoleBindings:
+      - clusterRole: {{ .Values.groups.kubernetesLogViewers.roleName }}
+{{- else }}
+    roleBindings:
+    {{- range $namespace := .Values.groups.kubernetesLogViewers.namespaces }}
+      - clusterRole: {{ .Values.groups.kubernetesLogViewers.roleName }}
+        namespace: {{ $namespace }}
+    {{- end }}
+{{- end }}
+      

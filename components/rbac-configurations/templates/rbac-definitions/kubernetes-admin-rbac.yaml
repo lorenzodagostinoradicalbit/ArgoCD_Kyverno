@@ -1,0 +1,12 @@
+# RBAC configuration for kubernetes-admin Google group
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ required "Group name is required." .Values.groups.kubernetesAdmins.gcpGroupName }}
+rbacBindings:
+  - name: cluster-admin
+    subjects:
+      - kind: Group
+        name: {{ .Values.groups.kubernetesAdmins.gcpGroupName }}
+    clusterRoleBindings:
+      - clusterRole: cluster-admin
