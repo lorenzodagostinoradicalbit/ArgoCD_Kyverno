@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rbac-manager-stack
+  name: rbac-manager-stack-test
   namespace: argocd
 spec:
   destination:
