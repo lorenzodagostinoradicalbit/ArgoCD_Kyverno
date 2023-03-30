@@ -2,7 +2,7 @@ groups:
   kubernetesEditors:
     clusterWide: false
     namespaces: [
-    default
+    default,
     test
     ]
   kubernetesLogViewer:
