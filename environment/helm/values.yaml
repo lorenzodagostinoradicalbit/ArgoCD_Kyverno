@@ -39,4 +39,4 @@ rbacManager:
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders"
       clusterWide: false
-      namespaces: [default, test]
+      namespaces: [default test]
