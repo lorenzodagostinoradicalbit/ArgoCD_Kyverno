@@ -22,7 +22,7 @@ spec:
             clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
             namespaces: |-
               {{- range .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
-            - {{ . }}
+              - {{ . }}
               {{- end }} 
           kubernetesLogViewers:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
