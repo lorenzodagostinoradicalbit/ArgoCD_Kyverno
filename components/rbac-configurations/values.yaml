@@ -8,10 +8,10 @@ groups:
   kubernetesLogViewers:
     gcpGroupName: ""
     roleName: log-viewers
-    clusterWide: false
-    namespaces: [test]
+    clusterWide: true
+    namespaces: []
   kubernetesPortForwarders:
     gcpGroupName: ""
     roleName: port-forwarders
-    clusterWide: false
+    clusterWide: true
     namespaces: []

@@ -27,18 +27,56 @@ cnpg:
 rbacManager:
   groupsControl:
     kubernetesAdmins:
-      gcpGroupName: "kubernetes-admins"
+      gcpGroupName: "kubernetes-admins"          # @radicalbit.io is added by component
     kubernetesEditors:
-      gcpGroupName: "kubernetes-editors"
-      clusterWide: false
-      namespaces: [default]
-    kubernetesLogViewers:
-      gcpGroupName: "kubernetes-log-viewers"
-      clusterWide: false
-      namespaces: [test]
-    kubernetesPortForwarders:
-      gcpGroupName: "kubernetes-port-forwarders"
+      gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
       clusterWide: false
       namespaces:
+      - golive
+      - continuum
+    kubernetesLogViewers:
+      gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
+      clusterWide: false
+      namespaces:
+      - argocd
+      - cert-manager
+      - continuum
       - default
-      - test
+      - golive
+      - istio-operator
+      - istio-system
+      - kafka
+      - knative
+      - knative-eventing
+      - knative-serving
+      - kyverno
+      - monitoring
+      - nginx
+      - pankov
+      - rbac-manager
+      - reloader
+      - seldon-system
+      - tools
+    kubernetesPortForwarders:
+      gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
+      clusterWide: false
+      namespaces:
+      - argocd
+      - cert-manager
+      - continuum
+      - default
+      - golive
+      - istio-operator
+      - istio-system
+      - kafka
+      - knative
+      - knative-eventing
+      - knative-serving
+      - kyverno
+      - monitoring
+      - nginx
+      - pankov
+      - rbac-manager
+      - reloader
+      - seldon-system
+      - tools
