@@ -12,10 +12,10 @@ rbacManager:
       gcpGroupName: "kubernetes-admins"          # @radicalbit.io is added by component
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
-      clusterWide: true
+      clusterWide: false
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
-      clusterWide: true
+      clusterWide: false
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
-      clusterWide: true
+      clusterWide: false
