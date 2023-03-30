@@ -1,3 +1,11 @@
+global:
+  environment: local
+  targetRevision: develop
+  storageClass: default
+  images:
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+
 rbacManager:
   groupsControl:
     kubernetesAdmins:
