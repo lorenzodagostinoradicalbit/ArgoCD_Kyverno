@@ -27,16 +27,16 @@ cnpg:
 rbacManager:
   groupsControl:
     kubernetesAdmins:
-      gcpGroupName: "kubernetes-admins@radicalbit.io"
+      gcpGroupName: "kubernetes-admins"
     kubernetesEditors:
-      gcpGroupName: "kubernetes-editors@radicalbit.io"
+      gcpGroupName: "kubernetes-editors"
       clusterWide: true
       namespaces: []
     kubernetesLogViewers:
-      gcpGroupName: "kubernetes-log-viewers@radicalbit.io"
+      gcpGroupName: "kubernetes-log-viewers"
       clusterWide: true
       namespaces: []
     kubernetesPortForwarders:
-      gcpGroupName: "kubernetes-port-forwarders@radicalbit.io"
+      gcpGroupName: "kubernetes-port-forwarders"
       clusterWide: true
       namespaces: []

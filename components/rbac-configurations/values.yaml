@@ -2,16 +2,16 @@ groups:
   kubernetesAdmins:
     gcpGroupName: ""
   kubernetesEditors:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     clusterWide: true
     namespaces: []
   kubernetesLogViewers:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     roleName: "log-viewers"
     clusterWide: true
     namespaces: []
   kubernetesPortForwarders:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     roleName: "port-forwarders"
     clusterWide: true
     namespaces: []

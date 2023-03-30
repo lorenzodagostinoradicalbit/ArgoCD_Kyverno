@@ -7,7 +7,7 @@ rbacBindings:
   - name: {{ required "Cluster Role name is required." .Values.groups.kubernetesLogViewers.roleName }}
     subjects:
       - kind: Group
-        name: {{ .Values.groups.kubernetesLogViewers.gcpGroupName }}
+        name: {{ .Values.groups.kubernetesLogViewers.gcpGroupName }}"@radicalbit.io"
 {{- $namespaceLen := len .Values.groups.kubernetesLogViewers.namespaces }}
 {{- if or .Values.groups.kubernetesLogViewers.clusterWide ( eq $namespaceLen 0 ) }}
     clusterRoleBindings:
