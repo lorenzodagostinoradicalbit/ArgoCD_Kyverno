@@ -15,15 +15,20 @@ spec:
     helm:
       values: |
         groups:
+          kubernetesAdmins:
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesAdmins.gcpGroupName }}
           kubernetesEditors:
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
             clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.clusterWide }}
             namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.namespaces }}
           kubernetesLogViewer:
-            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewer.clusterWide }}
-            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewer.namespaces }}
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
+            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.clusterWide }}
+            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.namespaces }}
           kubernetesPortForwarder:
-            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarder.clusterWide }}
-            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarder.namespaces }}
+            gcpGroupname: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.cgpGroupName }}
+            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.clusterWide }}
+            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.namespaces }}
   syncPolicy:
     automated:
       prune: true

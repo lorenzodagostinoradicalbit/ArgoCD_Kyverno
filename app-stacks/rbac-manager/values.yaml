@@ -1,15 +1,20 @@
 global:
   targetRevision: ""
 
-rbacConfig:
+rbacManager:
   targetRevision: 1.15.3
   groupsControl:
+    kubernetesAdmins:
+      gcpGroupName: ""
     kubernetesEditors:
+      gcpGroupName: ""
       clusterWide: true
       namespaces: []
-    kubernetesLogViewer:
+    kubernetesLogViewers:
+      gcpGroupName: ""
       clusterWide: true
       namespaces: []
-    kubernetesPortForwarder:
+    kubernetesPortForwarders:
+      cgpGroupName: ""
       clusterWide: true
       namespaces: []

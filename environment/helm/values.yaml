@@ -25,18 +25,18 @@ cnpg:
   targetRevision: cloudnative-pg-v0.17.0
 
 rbacManager:
-  targetRevision: 1.15.3
   groupsControl:
+    kubernetesAdmins:
+      gcpGroupName: kubernetes-admins@radicalbit.io
     kubernetesEditors:
-      clusterWide: false
-      namespaces: 
-      - default
-    kubernetesLogViewer:
-      clusterWide: false
-      namespaces:
-      - default
-      - test
-    kubernetesPortForwarder:
-      clusterWide: false
-      namespaces:
-      - test
+      gcpGroupName: kubernetes-editors@radicalbit.io
+      clusterWide: true
+      namespaces: []
+    kubernetesLogViewers:
+      gcpGroupName: kubernetes-log-viewers@radicalbit.io
+      clusterWide: true
+      namespaces: []
+    kubernetesPortForwarders:
+      cgpGroupName: kubernetes-port-forwarders@radicalbit.io
+      clusterWide: true
+      namespaces: []
