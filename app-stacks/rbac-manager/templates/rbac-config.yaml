@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
-    targetRevision: "dev" #{{ .Values.global.targetRevision | quote }}
+    targetRevision: {{ .Values.global.targetRevision | quote }}
     path: components/rbac-configurations
     helm:
       values: |
