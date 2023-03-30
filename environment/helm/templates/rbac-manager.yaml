@@ -16,9 +16,7 @@ spec:
       values: |
         global:
           targetRevision: {{ .Values.global.targetRevision | quote }}
-        global:
-          targetRevision: {{ .Values.global.targetRevision | quote }}
-        rbacConfig:
+        rbacManager:
           groupsControl:
             kubernetesAdmins:
               gcpGroupName: {{ required "GCP Admin group name is required." .Values.rbacManager.groupsControl.kubernetesAdmins.gcpGroupName }}
