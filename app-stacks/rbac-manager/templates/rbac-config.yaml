@@ -10,8 +10,20 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
-    targetRevision: {{ .Values.global.targetRevision | quote }}
+    targetRevision: "dev" #{{ .Values.global.targetRevision | quote }}
     path: components/rbac-configurations
+    helm:
+      values: |
+        groups:
+          kubernetesEditors:
+            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.clusterWide }}
+            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.namespaces }}
+          kubernetesLogViewer:
+            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewer.clusterWide }}
+            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewer.namespaces }}
+          kubernetesPortForwarder:
+            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarder.clusterWide }}
+            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarder.namespaces }}
   syncPolicy:
     automated:
       prune: true

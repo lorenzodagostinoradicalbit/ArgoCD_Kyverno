@@ -1,5 +1,15 @@
 global:
   targetRevision: ""
 
-rbacManager:
+rbacConfig:
   targetRevision: 1.15.3
+  groupsControl:
+    kubernetesEditors:
+      clusterWide: true
+      namespaces: []
+    kubernetesLogViewer:
+      clusterWide: true
+      namespaces: []
+    kubernetesPortForwarder:
+      clusterWide: true
+      namespaces: []

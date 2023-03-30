@@ -16,6 +16,18 @@ spec:
       values: |
         global:
           targetRevision: {{ .Values.global.targetRevision | quote }}
+        rbacConfig:
+          targetRevision: {{ .Values.rbacManager.targetRevision }}
+          groupsControl:
+            kubernetesEditors:
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
+          kubernetesLogViewer:
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewer.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesLogViewer.namespaces }}
+          kubernetesPortForwarder:
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarder.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarder.namespaces }}
   syncPolicy:
     automated:
       prune: true

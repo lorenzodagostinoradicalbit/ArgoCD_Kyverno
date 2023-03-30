@@ -23,3 +23,20 @@ cnpg:
   enabled: false
   namespace: cnpg-system
   targetRevision: cloudnative-pg-v0.17.0
+
+rbacManager:
+  targetRevision: 1.15.3
+  groupsControl:
+    kubernetesEditors:
+      clusterWide: false
+      namespaces: 
+      - default
+    kubernetesLogViewer:
+      clusterWide: false
+      namespaces:
+      - default
+      - test
+    kubernetesPortForwarder:
+      clusterWide: false
+      namespaces:
+      - test
