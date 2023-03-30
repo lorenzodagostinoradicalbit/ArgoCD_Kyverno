@@ -4,14 +4,53 @@ groups:
   kubernetesEditors:
     gcpGroupName: ""
     clusterWide: true
-    namespaces: []
+    namespaces:
+        - default
   kubernetesLogViewers:
     gcpGroupName: ""
     roleName: log-viewers
     clusterWide: true
-    namespaces: []
+    namespaces:
+        - argocd
+        - cert-manager
+        - continuum
+        - default
+        - golive
+        - istio-operator
+        - istio-system
+        - kafka
+        - knative
+        - knative-eventing
+        - knative-serving
+        - kyverno
+        - monitoring
+        - nginx
+        - pankov
+        - rbac-manager
+        - reloader
+        - seldon-system
+        - tools
   kubernetesPortForwarders:
     gcpGroupName: ""
     roleName: port-forwarders
     clusterWide: true
-    namespaces: []
+    namespaces:
+        - argocd
+        - cert-manager
+        - continuum
+        - default
+        - golive
+        - istio-operator
+        - istio-system
+        - kafka
+        - knative
+        - knative-eventing
+        - knative-serving
+        - kyverno
+        - monitoring
+        - nginx
+        - pankov
+        - rbac-manager
+        - reloader
+        - seldon-system
+        - tools
