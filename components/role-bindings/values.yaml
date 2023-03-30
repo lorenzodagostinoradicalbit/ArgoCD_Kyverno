@@ -3,6 +3,7 @@ groups:
     clusterWide: false
     namespaces: [
     default
+    test
     ]
   kubernetesLogViewer:
     clusterWide: false
