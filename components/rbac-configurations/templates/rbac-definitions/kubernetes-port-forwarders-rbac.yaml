@@ -9,13 +9,14 @@ rbacBindings:
       - kind: Group
         name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesPortForwarders.gcpGroupName }}
 {{- $namespaceLen := len .Values.groups.kubernetesPortForwarders.namespaces }}
+{{- $roleName := .Values.groups.kubernetesPortForwarders.roleName }}
 {{- if or .Values.groups.kubernetesPortForwarders.clusterWide ( eq $namespaceLen 0 ) }}
     clusterRoleBindings:
-      - clusterRole: {{ .Values.groups.kubernetesPortForwarders.roleName }}
+      - clusterRole: {{ $roleName }}
 {{- else }}
     roleBindings:
     {{- range $namespace := .Values.groups.kubernetesPortForwarders.namespaces }}
-      - clusterRole: {{ .Values.groups.kubernetesPortForwarders.roleName }}
+      - clusterRole: {{ $roleName }}
         namespace: {{ $namespace }}
     {{- end }}
 {{- end }}
