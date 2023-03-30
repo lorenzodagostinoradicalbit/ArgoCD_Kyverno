@@ -34,9 +34,9 @@ rbacManager:
       namespaces: [default]
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"
-      clusterWide: true
-      namespaces: []
+      clusterWide: false
+      namespaces: [test]
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders"
-      clusterWide: true
-      namespaces: []
+      clusterWide: false
+      namespaces: [default, test]
