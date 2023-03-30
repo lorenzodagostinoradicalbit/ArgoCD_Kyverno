@@ -29,7 +29,7 @@ spec:
               clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
               namespaces: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces }}
             kubernetesPortForwarders:
-              gcpGroupName: {{ required "GCP Port Forwarders group name is required." .Values.rbacManager.groupsControl.kubernetesPortForwarders.cgpGroupName }}
+              gcpGroupName: {{ required "GCP Port Forwarders group name is required." .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
               clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
               namespaces: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
   syncPolicy:
