@@ -31,19 +31,19 @@ rbacManager:
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
       clusterWide: false
-      namespaces: []
+      # namespaces: []
         # - golive
         # - continuum
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
       clusterWide: false
-      namespaces: 
-        - test
-        - default
+      # namespaces: 
+      #   - golive
+      #   - continuum
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
       clusterWide: false
-      namespaces: []
+      # namespaces: []
         # - argocd
         # - cert-manager
         # - continuum
