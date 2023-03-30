@@ -19,16 +19,16 @@ spec:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesAdmins.gcpGroupName }}
           kubernetesEditors:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
-            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.clusterWide }}
-            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.namespaces }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
           kubernetesLogViewers:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
-            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.clusterWide }}
-            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.namespaces }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces }}
           kubernetesPortForwarders:
             gcpGroupname: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.cgpGroupName }}
-            clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.clusterWide }}
-            namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.namespaces }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
   syncPolicy:
     automated:
       prune: true
