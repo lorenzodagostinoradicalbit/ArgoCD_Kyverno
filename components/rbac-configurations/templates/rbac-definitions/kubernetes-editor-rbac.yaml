@@ -7,7 +7,7 @@ rbacBindings:
   - name: edit
     subjects:
       - kind: Group
-        name: {{ .Values.groups.kubernetesEditors.gcpGroupName }}"@radicalbit.io"
+        name: {{ printf "$s@radicalbit.io" .Values.groups.kubernetesEditors.gcpGroupName }}
 {{- $namespaceLen := len .Values.groups.kubernetesEditors.namespaces }}
 {{- if or .Values.groups.kubernetesEditors.clusterWide ( eq $namespaceLen 0 ) }}
     clusterRoleBindings:
