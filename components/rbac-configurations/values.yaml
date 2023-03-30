@@ -11,7 +11,7 @@ groups:
     clusterWide: true
     namespaces: []
   kubernetesPortForwarders:
-    cgpGroupName: ""
+    gcpGroupName: ""
     roleName: "port-forwarders"
     clusterWide: true
     namespaces: []
