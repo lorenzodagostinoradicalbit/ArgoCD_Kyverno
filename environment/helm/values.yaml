@@ -1,6 +1,6 @@
 global:
   environment: local
-  targetRevision: develop
+  targetRevision: rbac-manager
   storageClass: default
   images:
     pullPolicy: IfNotPresent
