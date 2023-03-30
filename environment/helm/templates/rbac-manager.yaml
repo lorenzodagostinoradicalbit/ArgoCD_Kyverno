@@ -23,12 +23,24 @@ spec:
             kubernetesEditors:
               gcpGroupName: {{ required "GCP Editors group name is required." .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
               clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
+              namespaces:
+                {{- range .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
+                - {{ . }}
+                {{- end }} 
             kubernetesLogViewers:
               gcpGroupName: {{ required "GCP Log Viewers group name is required." .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
               clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
+              namespaces:
+                {{- range .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces }}
+                - {{ . }}
+                {{- end }}
             kubernetesPortForwarders:
               gcpGroupName: {{ required "GCP Port Forwarders group name is required." .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
               clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
+              namespaces:
+                {{- range .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
+                - {{ . }}
+                {{- end }} 
   syncPolicy:
     automated:
       prune: true
