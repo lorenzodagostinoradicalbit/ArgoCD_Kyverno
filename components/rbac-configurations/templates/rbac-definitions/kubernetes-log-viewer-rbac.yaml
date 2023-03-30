@@ -8,7 +8,7 @@ rbacBindings:
     subjects:
       - kind: Group
         name: {{ .Values.groups.kubernetesLogViewers.gcpGroupName }}
-{{- $namespaceLen := len .Values.groups.kubernetesLogViewer.namespaces }}
+{{- $namespaceLen := len .Values.groups.kubernetesLogViewers.namespaces }}
 {{- if or .Values.groups.kubernetesLogViewers.clusterWide ( eq $namespaceLen 0 ) }}
     clusterRoleBindings:
       - clusterRole: {{ .Values.groups.kubernetesLogViewers.roleName }}
