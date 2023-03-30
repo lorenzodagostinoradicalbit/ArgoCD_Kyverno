@@ -9,12 +9,12 @@ rbacManager:
     kubernetesEditors:
       gcpGroupName: ""
       clusterWide: true
-      namespaces: 
+      namespaces: []
     kubernetesLogViewers:
       gcpGroupName: ""
       clusterWide: true
-      namespaces: 
+      namespaces: []
     kubernetesPortForwarders:
       gcpGroupName: ""
       clusterWide: true
-      namespaces: 
+      namespaces: []
