@@ -37,6 +37,6 @@ rbacManager:
       clusterWide: true
       namespaces: []
     kubernetesPortForwarders:
-      cgpGroupName: kubernetes-port-forwarders@radicalbit.io
+      gcpGroupName: kubernetes-port-forwarders@radicalbit.io
       clusterWide: true
       namespaces: []
