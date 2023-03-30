@@ -32,8 +32,8 @@ rbacManager:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
       clusterWide: false
       namespaces:
-      - golive
-      - continuum
+        - golive
+        - continuum
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
       clusterWide: false
