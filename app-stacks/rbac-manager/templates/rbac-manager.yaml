@@ -11,7 +11,7 @@ spec:
   source:
     chart: rbac-manager
     repoURL: https://charts.fairwinds.com/stable
-    targetRevision: {{ .Values.rbacConfig.targetRevision }}
+    targetRevision: {{ .Values.rbacManager.targetRevision }}
   syncPolicy:
     automated:
       prune: true
