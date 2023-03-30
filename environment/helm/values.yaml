@@ -1,29 +1,3 @@
-global:
-  environment: local
-  targetRevision: develop
-  storageClass: default
-  images:
-    pullPolicy: IfNotPresent
-    pullSecrets: []
-
-# kyverno
-kyverno:
-  enable: true
-  engine:
-    highAvailability:
-      enabled: false
-  reportsControl:
-    enabled: true
-    ui:
-      enabled: true
-      useKyvernoPlugin: true
-
-# cloudnative-pg
-cnpg:
-  enabled: false
-  namespace: cnpg-system
-  targetRevision: cloudnative-pg-v0.17.0
-
 rbacManager:
   groupsControl:
     kubernetesAdmins:
