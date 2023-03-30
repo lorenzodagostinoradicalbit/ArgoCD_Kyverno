@@ -21,11 +21,11 @@ spec:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
             clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.clusterWide }}
             namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesEditors.namespaces }}
-          kubernetesLogViewer:
+          kubernetesLogViewers:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
             clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.clusterWide }}
             namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesLogViewers.namespaces }}
-          kubernetesPortForwarder:
+          kubernetesPortForwarders:
             gcpGroupname: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.cgpGroupName }}
             clusterWide: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.clusterWide }}
             namespaces: {{ .Values.rbacConfig.groupsControl.kubernetesPortForwarders.namespaces }}
