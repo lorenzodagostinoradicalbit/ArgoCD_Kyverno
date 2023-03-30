@@ -1,13 +1,17 @@
 groups:
   kubernetesEditors:
-    clusterWide: true
+    clusterWide: false
     namespaces: [
+    default,
+    test
     ]
   kubernetesLogViewer:
-    clusterWide: true
+    clusterWide: false
     namespaces: [
+    default
     ]
   kubernetesPortForwarder:
-    clusterWide: true
+    clusterWide: false
     namespaces: [
+    default
     ]
