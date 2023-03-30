@@ -18,14 +18,14 @@ spec:
           kubernetesAdmins:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesAdmins.gcpGroupName }}
           kubernetesEditors:
-              gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
-              clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
-            kubernetesLogViewers:
-              gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
-              clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
-            kubernetesPortForwarders:
-              gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
-              clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
+          kubernetesLogViewers:
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
+          kubernetesPortForwarders:
+            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
+            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
   syncPolicy:
     automated:
       prune: true
