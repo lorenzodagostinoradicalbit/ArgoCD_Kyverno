@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: role-bindings-test
+  namespace: argocd
+spec:
+  destination:
+    namespace: rbac-manager
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
+    targetRevision: {{ .Values.global.targetRevision | quote }}
+    path: components/role-bindings
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

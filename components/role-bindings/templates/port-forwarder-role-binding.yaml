@@ -1,0 +1,32 @@
+{{- $namespaceLen := len .Values.groups.kubernetesEditors.namespaces }}
+{{- if or .Values.groups.kubernetesEditors.clusterWide ( eq $namespaceLen 0 ) }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluser-port-forwarders
+subjects:
+- kind: Group
+  name: port-forwarders@radicalbit.io
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: port-forwarders
+  apiGroup: rbac.authorization.k8s.io
+{{- else }}
+{{- range $namespace := .Values.groups.kubernetesEditors.namespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: port-forwarders
+  namespace: {{ $namespace }}
+subjects:
+- kind: Group
+  name: port-forwarders@radicalbit.io
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: port-forwarders
+  apiGroup: rbac.authorization.k8s.io
+---
+{{- end }}
+{{- end }}
