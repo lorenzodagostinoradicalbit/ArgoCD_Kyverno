@@ -20,15 +20,15 @@ spec:
           kubernetesEditors:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
             clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
-            namespaces: {{ toYaml .Values.rbacManager.groupsControl.kubernetesEditors.namespaces | indent 14 }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
           kubernetesLogViewers:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
             clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
-            namespaces: {{ toYaml .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces | indent 14 }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces }}
           kubernetesPortForwarders:
             gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
             clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
-            namespaces: {{ toYaml .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces | indent 14 }}
+            namespaces: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
   syncPolicy:
     automated:
       prune: true
