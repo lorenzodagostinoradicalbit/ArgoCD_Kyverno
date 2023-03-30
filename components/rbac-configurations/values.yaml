@@ -7,11 +7,11 @@ groups:
     namespaces: []
   kubernetesLogViewers:
     gcpGroupName: "a"
-    roleName: "log-viewers"
+    roleName: log-viewers
     clusterWide: true
     namespaces: []
   kubernetesPortForwarders:
     gcpGroupName: "a"
-    roleName: "port-forwarders"
+    roleName: port-forwarders
     clusterWide: true
     namespaces: []
