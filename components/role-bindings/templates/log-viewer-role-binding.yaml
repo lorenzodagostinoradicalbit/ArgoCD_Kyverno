@@ -1,5 +1,5 @@
-{{- $namespaceLen := len .Values.groups.kubernetesEditors.namespaces }}
-{{- if or .Values.groups.kubernetesEditors.clusterWide ( eq $namespaceLen 0 ) }}
+{{- $namespaceLen := len .Values.groups.kubernetesLogViewer.namespaces }}
+{{- if or .Values.groups.kubernetesLogViewer.clusterWide ( eq $namespaceLen 0 ) }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -13,7 +13,7 @@ roleRef:
   name: log-viewers
   apiGroup: rbac.authorization.k8s.io
 {{- else }}
-{{- range $namespace := .Values.groups.kubernetesEditors.namespaces }}
+{{- range $namespace := .Values.groups.kubernetesLogViewer.namespaces }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
