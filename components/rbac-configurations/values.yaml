@@ -1,13 +1,13 @@
 groups:
   kubernetesAdmins:
-    gcpGroupName: ""
+    gcpGroupName: "a"
   kubernetesEditors:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     clusterWide: true
     namespaces:
         - default
   kubernetesLogViewers:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     roleName: log-viewers
     clusterWide: true
     namespaces:
@@ -31,7 +31,7 @@ groups:
         - seldon-system
         - tools
   kubernetesPortForwarders:
-    gcpGroupName: ""
+    gcpGroupName: "a"
     roleName: port-forwarders
     clusterWide: true
     namespaces:
