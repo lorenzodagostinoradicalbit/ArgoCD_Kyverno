@@ -7,6 +7,6 @@ rbacBindings:
   - name: cluster-admin
     subjects:
       - kind: Group
-        name: {{ printf "$s@radicalbit.io" .Values.groups.kubernetesAdmins.gcpGroupName }}
+        name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesAdmins.gcpGroupName }}
     clusterRoleBindings:
       - clusterRole: cluster-admin

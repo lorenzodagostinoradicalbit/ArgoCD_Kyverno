@@ -30,13 +30,13 @@ rbacManager:
       gcpGroupName: "kubernetes-admins"
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"
-      clusterWide: false
+      clusterWide: true
       namespaces: [default]
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"
-      clusterWide: false
+      clusterWide: true
       namespaces: [default, test]
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders"
-      clusterWide: false
+      clusterWide: true
       namespaces: [test]
