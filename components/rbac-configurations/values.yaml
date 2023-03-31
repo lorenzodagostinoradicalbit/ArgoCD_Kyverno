@@ -1,8 +1,10 @@
 groups:
   kubernetesAdmins:
     gcpGroupName: ""
+    roleName: cluster-admin
   kubernetesEditors:
     gcpGroupName: ""
+    roleName: edit
     clusterWide: true
     labels:
       selector:
