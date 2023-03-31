@@ -9,14 +9,21 @@ rbacBindings:
       - kind: Group
         name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesEditors.gcpGroupName }}
 {{- $namespaceLen := len .Values.groups.kubernetesEditors.namespaces }}
-{{- if or .Values.groups.kubernetesEditors.clusterWide ( eq $namespaceLen 0 ) }}
+{{- if or .Values.groups.kubernetesEditors.clusterWide }}
     clusterRoleBindings:
       - clusterRole: edit
 {{- else }}
     roleBindings:
+{{- if or .Values.groups.kubernetesEditors.labels.active ( eq $namespaceLen 0 ) }}
+      - clusterRole: edit
+        namespaceSelector:
+          matchLabels:
+            kubernetes.rbac.groups: {{ .Values.groups.kubernetesEditors.labels.selector }}
+{{- else }}
     {{- range $namespace := .Values.groups.kubernetesEditors.namespaces }}
       - clusterRole: edit
         namespace: {{ $namespace }}
     {{- end }}
+{{- end }}
 {{- end }}
       

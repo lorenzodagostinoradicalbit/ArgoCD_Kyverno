@@ -13,26 +13,28 @@ rbacManager:
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
       clusterWide: false
-      namespaces:
-      - continuum
-      - golive
+      labels:
+        active: true
+        selector: editors
+      namespaces: []
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
       clusterWide: false
-      namespaces:
-      - rbac-manager
-      - reloader
-      - seldon-system
-      - tools
+      labels:
+        active: true
+        selector: log-viewers
+      namespaces: []
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
       clusterWide: false
-      namespaces:
-      - argocd
-      - cert-manager
+      labels:
+        active: true
+        selector: port-forwarders
+      namespaces: []
     kubernetesPodExecutors:
-      gcpGroupName: "kubernetes-pod-executors" # @radicalbit.io is added by component
+      gcpGroupName: "kubernetes-pod-executors"  # @radicalbit.io is added by component
       clusterWide: false
-      namespaces:
-      - golive
-      - continuum
+      labels:
+        active: true
+        selector: pod-executors
+      namespaces: []

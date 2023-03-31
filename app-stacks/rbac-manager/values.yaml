@@ -9,16 +9,28 @@ rbacManager:
     kubernetesEditors:
       gcpGroupName: ""
       clusterWide: true
+      labels:
+        selector: ""
+        active: true
       namespaces: []
     kubernetesLogViewers:
       gcpGroupName: ""
       clusterWide: true
+      labels:
+        selector: ""
+        active: true
       namespaces: []
     kubernetesPortForwarders:
       gcpGroupName: ""
       clusterWide: true
+      labels:
+        selector: ""
+        active: true
       namespaces: []
     kubernetesPodExecutors:
       gcpGroupName: ""
       clusterWide: true
+      labels:
+        selector: ""
+        active: true
       namespaces: []

@@ -4,19 +4,31 @@ groups:
   kubernetesEditors:
     gcpGroupName: ""
     clusterWide: true
+    labels:
+      selector: "can-edit"
+      active: true
     namespaces: []
   kubernetesLogViewers:
     gcpGroupName: ""
     roleName: log-viewers
     clusterWide: true
+    labels:
+      selector: "can-log-view"
+      active: true
     namespaces: []
   kubernetesPortForwarders:
     gcpGroupName: ""
     roleName: port-forwarders
     clusterWide: true
+    labels:
+      selector: "can-port-forward"
+      active: true
     namespaces: []
   kubernetesPodExecutors:
     gcpGroupName: ""
     roleName: pod-executor
     clusterWide: true
+    labels:
+      selector: "can-pod-exec"
+      active: true
     namespaces: []

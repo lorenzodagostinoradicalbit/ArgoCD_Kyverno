@@ -10,14 +10,21 @@ rbacBindings:
         name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesPodExecutors.gcpGroupName }}
 {{- $namespaceLen := len .Values.groups.kubernetesPodExecutors.namespaces }}
 {{- $roleName := .Values.groups.kubernetesPodExecutors.roleName }}
-{{- if or .Values.groups.kubernetesPodExecutors.clusterWide ( eq $namespaceLen 0 ) }}
+{{- if or .Values.groups.kubernetesPodExecutors.clusterWide }}
     clusterRoleBindings:
       - clusterRole: {{ $roleName }}
 {{- else }}
     roleBindings:
+{{- if or .Values.groups.kubernetesPodExecutors.labels.active ( eq $namespaceLen 0 ) }}
+      - clusterRole: {{ .Values.groups.kubernetesPodExecutors.roleName }}
+        namespaceSelector:
+          matchLabels:
+            kubernetes.rbac.groups: {{ .Values.groups.kubernetesPodExecutors.labels.selector }}
+{{- else }}
     {{- range $namespace := .Values.groups.kubernetesPodExecutors.namespaces }}
-      - clusterRole: {{ $roleName }}
+      - clusterRole: {{ .Values.groups.kubernetesPodExecutors.roleName }}
         namespace: {{ $namespace }}
     {{- end }}
+{{- end }}
 {{- end }}
       
