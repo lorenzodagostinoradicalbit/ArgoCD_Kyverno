@@ -1,0 +1,34 @@
+# Ordered list of groups
+{{- $groups := keys $.Values.groups | uniq | sortAlpha }}
+# We range on groups, and for each group we create a RBACDefinition
+{{- range $groups }}
+{{- $group := (get $.Values.groups .) }}
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ required "Group name is required." $group.gcpGroupName }}
+rbacBindings:
+  - name: {{ required "Cluster Role name is required." $group.roleName }}
+    subjects:
+      - kind: Group
+        name: {{ printf "%s@radicalbit.io" $group.gcpGroupName }}
+{{- $namespaceLen := len ( $group.namespaces | default list ) }}
+{{- $roleName := $group.roleName }}
+{{- if $group.clusterWide }}
+    clusterRoleBindings:
+      - clusterRole: {{ $roleName }}
+{{- else }}
+    roleBindings:
+{{- if or (($group.labels).active) ( eq $namespaceLen 0 ) }}
+      - clusterRole: {{ $group.roleName }}
+        namespaceSelector:
+          matchLabels:
+            {{ toYaml $group.labels.selector }}
+{{- else }}
+    {{- range $namespace := $group.namespaces }}
+      - clusterRole: {{ $group.roleName }}
+        namespace: {{ $namespace }}
+    {{- end }}
+{{- end }}
+{{- end }}
+{{- end }}

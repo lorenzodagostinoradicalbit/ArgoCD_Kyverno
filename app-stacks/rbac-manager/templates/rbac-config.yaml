@@ -15,48 +15,19 @@ spec:
     helm:
       values: |
         groups:
-          kubernetesAdmins:
-            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesAdmins.gcpGroupName }}
-          kubernetesEditors:
-            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesEditors.gcpGroupName }}
-            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesEditors.clusterWide }}
+          {{- $groups := keys $.Values.rbacManager.groupsControl | uniq | sortAlpha }}
+          {{- range $groups }}
+          {{- $groupName := (get $.Values.rbacManager.groupsControl .) }}
+          {{ . }}:
+            gcpGroupName: {{ $groupName.gcpGroupName }}
+          {{- if ne . "kubernetesAdmins" }}
+            clusterWide: {{ $groupName.clusterWide }}
             labels:
-              active: {{ .Values.rbacManager.groupsControl.kubernetesEditors.labels.active }}
-              selector: {{ .Values.rbacManager.groupsControl.kubernetesEditors.labels.selector }}
-            namespaces:
-              {{- range .Values.rbacManager.groupsControl.kubernetesEditors.namespaces }}
-              - {{ . }}
-              {{- end }} 
-          kubernetesLogViewers:
-            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.gcpGroupName }}
-            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.clusterWide }}
-            labels:
-              active: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.labels.active }}
-              selector: {{ .Values.rbacManager.groupsControl.kubernetesLogViewers.labels.selector }}
-            namespaces:
-              {{- range .Values.rbacManager.groupsControl.kubernetesLogViewers.namespaces }}
-              - {{ . }}
-              {{- end }} 
-          kubernetesPortForwarders:
-            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.gcpGroupName }}
-            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.clusterWide }}
-            labels:
-              active: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.labels.active }}
-              selector: {{ .Values.rbacManager.groupsControl.kubernetesPortForwarders.labels.selector }}
-            namespaces:
-              {{- range .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
-              - {{ . }}
-              {{- end }}
-          kubernetesPodExecutors:
-            gcpGroupName: {{ .Values.rbacManager.groupsControl.kubernetesPodExecutors.gcpGroupName }}
-            clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPodExecutors.clusterWide }}
-            labels:
-              active: {{ .Values.rbacManager.groupsControl.kubernetesPodExecutors.labels.active }}
-              selector: {{ .Values.rbacManager.groupsControl.kubernetesPodExecutors.labels.selector }}
-            namespaces:
-              {{- range .Values.rbacManager.groupsControl.kubernetesPodExecutors.namespaces }}
-              - {{ . }}
-              {{- end }}
+              active: {{ $groupName.labels.active }}
+              selector:
+                {{ toYaml $groupName.labels.selector }}
+          {{- end }}
+          {{- end }}
   syncPolicy:
     automated:
       prune: true

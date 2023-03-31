@@ -5,7 +5,8 @@ groups:
     gcpGroupName: ""
     clusterWide: true
     labels:
-      selector: "can-edit"
+      selector:
+        rbac.authorization.edit: true
       active: true
     namespaces: []
   kubernetesLogViewers:
@@ -13,7 +14,8 @@ groups:
     roleName: log-viewers
     clusterWide: true
     labels:
-      selector: "can-log-view"
+      selector:
+        rbac.authorization.log-view: true
       active: true
     namespaces: []
   kubernetesPortForwarders:
@@ -21,7 +23,8 @@ groups:
     roleName: port-forwarders
     clusterWide: true
     labels:
-      selector: "can-port-forward"
+      selector:
+        rbac.authorization.port-forward: true
       active: true
     namespaces: []
   kubernetesPodExecutors:
@@ -29,6 +32,7 @@ groups:
     roleName: pod-executor
     clusterWide: true
     labels:
-      selector: "can-pod-exec"
+      selector:
+        rbac.authorization.pod-exec: true
       active: true
     namespaces: []

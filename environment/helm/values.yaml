@@ -15,7 +15,8 @@ rbacManager:
       clusterWide: false
       labels:
         active: false
-        selector: editors
+        selector:
+          rbac.authorization.edit: true
       namespaces: 
       - default
       - argocd
@@ -24,19 +25,22 @@ rbacManager:
       clusterWide: false
       labels:
         active: true
-        selector: log-viewers
+        selector:
+          rbac.authorization.log-view: true
       namespaces: []
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
       clusterWide: false
       labels:
         active: true
-        selector: port-forwarders
+        selector:
+          rbac.authorization.port-forward: true
       namespaces: []
     kubernetesPodExecutors:
       gcpGroupName: "kubernetes-pod-executors"  # @radicalbit.io is added by component
       clusterWide: false
       labels:
         active: true
-        selector: pod-executors
+        selector:
+          rbac.authorization.pod-exec: true
       namespaces: []
