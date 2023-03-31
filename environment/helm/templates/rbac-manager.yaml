@@ -29,6 +29,10 @@ spec:
                 active: {{ $groupName.labels.active }}
                 selector:
                   {{ toYaml $groupName.labels.selector }}
+              namespaces:
+                {{- range $groupName.namespaces }}
+                - {{ . }}
+                {{- end }} 
             {{- end }}
             {{- end }}
   syncPolicy:
