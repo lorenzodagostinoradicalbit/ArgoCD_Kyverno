@@ -2,6 +2,7 @@ groups:
   kubernetesAdmins:
     gcpGroupName: ""
     roleName: cluster-admin
+    clusterWide: true
   kubernetesEditors:
     gcpGroupName: ""
     roleName: edit

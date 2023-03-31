@@ -14,7 +14,7 @@ rbacBindings:
         name: {{ printf "%s@radicalbit.io" $group.gcpGroupName }}
 {{- $namespaceLen := len ( $group.namespaces | default list ) }}
 {{- $roleName := $group.roleName }}
-{{- if or $group.clusterWide (eq . "kubernetesAdmins") }}
+{{- if or $group.clusterWide }}
     clusterRoleBindings:
       - clusterRole: {{ $roleName }}
 {{- else }}
