@@ -14,24 +14,7 @@ spec:
     path: components/rbac-configurations
     helm:
       values: |
-        groups:
-          {{- $groups := keys $.Values.rbacManager.groupsControl | uniq | sortAlpha }}
-          {{- range $groups }}
-          {{- $groupName := (get $.Values.rbacManager.groupsControl .) }}
-          {{ . }}:
-            gcpGroupName: {{ $groupName.gcpGroupName }}
-          {{- if ne . "kubernetesAdmins" }}
-            clusterWide: {{ $groupName.clusterWide }}
-            labels:
-              active: {{ $groupName.labels.active }}
-              selector:
-                {{ toYaml $groupName.labels.selector }}
-            namespaces:
-                {{- range $groupName.namespaces }}
-                - {{ . }}
-                {{- end }} 
-          {{- end }}
-          {{- end }}
+        groups: {{- toYaml .Values.rbacManager.groupsControl | nindent 10 }}
   syncPolicy:
     automated:
       prune: true

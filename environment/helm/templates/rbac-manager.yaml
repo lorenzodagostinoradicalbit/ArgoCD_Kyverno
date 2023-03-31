@@ -17,24 +17,7 @@ spec:
         global:
           targetRevision: {{ .Values.global.targetRevision | quote }}
         rbacManager:
-          groupsControl:
-            {{- $groups := keys $.Values.rbacManager.groupsControl | uniq | sortAlpha }}
-            {{- range $groups }}
-            {{- $groupName := (get $.Values.rbacManager.groupsControl .) }}
-            {{ . }}:
-              gcpGroupName: {{ $groupName.gcpGroupName }}
-            {{- if ne . "kubernetesAdmins" }}
-              clusterWide: {{ $groupName.clusterWide }}
-              labels:
-                active: {{ $groupName.labels.active }}
-                selector:
-                  {{ toYaml $groupName.labels.selector }}
-              namespaces:
-                {{- range $groupName.namespaces }}
-                - {{ . }}
-                {{- end }} 
-            {{- end }}
-            {{- end }}
+          groupsControl: {{- toYaml .Values.rbacManager.groupsControl | nindent 12 }}
   syncPolicy:
     automated:
       prune: true
