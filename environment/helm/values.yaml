@@ -62,3 +62,9 @@ rbacManager:
         - reloader
         - seldon-system
         - tools
+    kubernetesPodExecutors:
+      gcpGroupName: "kubernetes-pod-executors" # @radicalbit.io is added by component
+      clusterWide: false
+      namespaces:
+        - golive
+        - continuum

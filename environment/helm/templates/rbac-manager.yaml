@@ -40,7 +40,14 @@ spec:
               namespaces:
                 {{- range .Values.rbacManager.groupsControl.kubernetesPortForwarders.namespaces }}
                 - {{ . }}
-                {{- end }} 
+                {{- end }}
+            kubernetesPodExecutors:
+              gcpGroupName: {{ required "GCP Port Forwarders group name is required." .Values.rbacManager.groupsControl.kubernetesPodExecutors.gcpGroupName }}
+              clusterWide: {{ .Values.rbacManager.groupsControl.kubernetesPodExecutors.clusterWide }}
+              namespaces:
+                {{- range .Values.rbacManager.groupsControl.kubernetesPodExecutors.namespaces }}
+                - {{ . }}
+                {{- end }}  
   syncPolicy:
     automated:
       prune: true

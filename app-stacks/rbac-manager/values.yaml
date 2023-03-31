@@ -18,3 +18,7 @@ rbacManager:
       gcpGroupName: ""
       clusterWide: true
       namespaces: []
+    kubernetesPodExecutors:
+      gcpGroupName: ""
+      clusterWide: true
+      namespaces: []

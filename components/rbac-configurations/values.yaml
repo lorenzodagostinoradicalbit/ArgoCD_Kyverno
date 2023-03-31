@@ -15,3 +15,8 @@ groups:
     roleName: port-forwarders
     clusterWide: true
     namespaces: []
+  kubernetesPodExecutors:
+    gcpGroupName: ""
+    roleName: pod-executor
+    clusterWide: true
+    namespaces: []

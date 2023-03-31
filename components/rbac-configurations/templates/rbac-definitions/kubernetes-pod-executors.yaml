@@ -1,0 +1,23 @@
+# RBAC configuration for kubernetes-pod-executors Google group
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ required "Group name is required." .Values.groups.kubernetesPodExecutors.gcpGroupName }}
+rbacBindings:
+  - name: {{ required "Cluster Role name is required." .Values.groups.kubernetesPodExecutors.roleName }}
+    subjects:
+      - kind: Group
+        name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesPodExecutors.gcpGroupName }}
+{{- $namespaceLen := len .Values.groups.kubernetesPodExecutors.namespaces }}
+{{- $roleName := .Values.groups.kubernetesPodExecutors.roleName }}
+{{- if or .Values.groups.kubernetesPodExecutors.clusterWide ( eq $namespaceLen 0 ) }}
+    clusterRoleBindings:
+      - clusterRole: {{ $roleName }}
+{{- else }}
+    roleBindings:
+    {{- range $namespace := .Values.groups.kubernetesPodExecutors.namespaces }}
+      - clusterRole: {{ $roleName }}
+        namespace: {{ $namespace }}
+    {{- end }}
+{{- end }}
+      
