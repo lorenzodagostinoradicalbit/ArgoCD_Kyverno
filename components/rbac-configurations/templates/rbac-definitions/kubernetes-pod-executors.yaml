@@ -8,7 +8,7 @@ rbacBindings:
     subjects:
       - kind: Group
         name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesPodExecutors.gcpGroupName }}
-{{- $namespaceLen := len ( .Values.groups.kubernetesPodExecutors.namespaces | default [] ) }}
+{{- $namespaceLen := len ( .Values.groups.kubernetesPodExecutors.namespaces | default list ) }}
 {{- $roleName := .Values.groups.kubernetesPodExecutors.roleName }}
 {{- if or .Values.groups.kubernetesPodExecutors.clusterWide }}
     clusterRoleBindings:

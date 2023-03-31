@@ -8,7 +8,7 @@ rbacBindings:
     subjects:
       - kind: Group
         name: {{ printf "%s@radicalbit.io" .Values.groups.kubernetesPortForwarders.gcpGroupName }}
-{{- $namespaceLen := len ( .Values.groups.kubernetesPortForwarders.namespaces | default [] ) }}
+{{- $namespaceLen := len ( .Values.groups.kubernetesPortForwarders.namespaces | default list ) }}
 {{- $roleName := .Values.groups.kubernetesPortForwarders.roleName }}
 {{- if or .Values.groups.kubernetesPortForwarders.clusterWide }}
     clusterRoleBindings:
