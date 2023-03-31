@@ -1,15 +1,16 @@
-apiVersion: rbacmanager.reactiveops.io/v1beta1
-kind: RBACDefinition
-metadata:
-  name: rbac-definitions
-rbacBindings:
 # Ordered list of groups
 {{- $groups := keys $.Values.groups | uniq | sortAlpha }}
 # We range on groups, and for each group we create a RBACDefinition
 {{- range $groups }}
 {{- $group := (get $.Values.groups .) }}
 {{- $gcpGroupName := required "Group name is required." $group.gcpGroupName }}
-  - name: {{ required "Cluster Role name is required." $group.roleName }}
+{{- $roleName := required "Cluster Role name is required." $group.roleName }}
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ $gcpGroupName }}
+rbacBindings:
+  - name: {{ $roleName }}
     subjects:
       - kind: Group
         name: {{ printf "%s@radicalbit.io" $gcpGroupName }}
