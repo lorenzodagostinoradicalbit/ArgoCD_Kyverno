@@ -18,6 +18,7 @@ rbacManager:
         selector: editors
       namespaces: 
       - default
+      - argocd
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
       clusterWide: false
