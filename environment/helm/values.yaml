@@ -12,11 +12,11 @@ rbacManager:
       gcpGroupName: "kubernetes-admins"          # @radicalbit.io is added by component
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
-      clusterWide: true
+      clusterWide: false
       labels:
-        active: false
+        active: true
         selector:
-          rbac.authorization.edit: "true"
+          rbac.authorization.edit: true
       namespaces: 
       - default
       - argocd
@@ -26,7 +26,7 @@ rbacManager:
       labels:
         active: true
         selector:
-          rbac.authorization.log-view: "true"
+          rbac.authorization.log-view: true
       namespaces: []
     kubernetesPortForwarders:
       gcpGroupName: "kubernetes-port-forwarders" # @radicalbit.io is added by component
@@ -34,7 +34,7 @@ rbacManager:
       labels:
         active: true
         selector:
-          rbac.authorization.port-forward: "true"
+          rbac.authorization.port-forward: true
       namespaces: []
     kubernetesPodExecutors:
       gcpGroupName: "kubernetes-pod-executors"  # @radicalbit.io is added by component
@@ -42,5 +42,5 @@ rbacManager:
       labels:
         active: true
         selector:
-          rbac.authorization.pod-exec: "true"
+          rbac.authorization.pod-exec: true
       namespaces: []

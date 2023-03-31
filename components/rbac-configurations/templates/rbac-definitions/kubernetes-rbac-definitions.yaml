@@ -25,7 +25,7 @@ rbacBindings:
       - clusterRole: {{ $group.roleName }}
         namespaceSelector:
           matchLabels:
-            {{ toYaml $group.labels.selector }}
+            {{ toYaml $group.labels.selector | quote }}
 {{- else }}
     {{- range $namespace := $group.namespaces }}
       - clusterRole: {{ $group.roleName }}
