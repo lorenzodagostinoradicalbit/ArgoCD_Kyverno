@@ -12,7 +12,7 @@ rbacManager:
       gcpGroupName: "kubernetes-admins"          # @radicalbit.io is added by component
     kubernetesEditors:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
-      clusterWide: false
+      clusterWide: true
       labels:
         active: false
         selector:
