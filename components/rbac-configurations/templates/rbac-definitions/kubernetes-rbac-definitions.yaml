@@ -33,4 +33,5 @@ rbacBindings:
     {{- end }}
 {{- end }}
 {{- end }}
+---
 {{- end }}
