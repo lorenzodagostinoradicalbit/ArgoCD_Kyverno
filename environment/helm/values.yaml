@@ -14,9 +14,10 @@ rbacManager:
       gcpGroupName: "kubernetes-editors"         # @radicalbit.io is added by component
       clusterWide: false
       labels:
-        active: true
+        active: false
         selector: editors
-      namespaces: []
+      namespaces: 
+      - default
     kubernetesLogViewers:
       gcpGroupName: "kubernetes-log-viewers"     # @radicalbit.io is added by component
       clusterWide: false
