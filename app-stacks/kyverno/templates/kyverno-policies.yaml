@@ -12,6 +12,8 @@ spec:
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
     targetRevision: {{ .Values.global.targetRevision | quote }}
     path: components/kyverno-policies
+    directory:
+      recurse: true
   syncPolicy:
     automated:
       prune: true
