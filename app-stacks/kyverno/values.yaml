@@ -2,7 +2,7 @@ global:
   targetRevision: ""
 
 kyverno:
-  enabled: false
+  enabled: true
   engine:
     targetRevision: 2.6.0
     # highAvailability doc: https://kyverno.io/docs/installation/#high-availability
