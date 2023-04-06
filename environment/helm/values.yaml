@@ -8,7 +8,7 @@ global:
 
 # kyverno
 kyverno:
-  enable: true
+  enabled: true
   engine:
     highAvailability:
       enabled: false

@@ -1,3 +1,4 @@
+{{- if .Values.kyverno.enabled }}
 {{- if or .Values.kyverno.reportsControl.enabled .Values.kyverno.reportsControl.ui.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -37,4 +38,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+{{- end }}
 {{- end }}
