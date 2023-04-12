@@ -139,10 +139,10 @@ spec:
           - storage.k8s.io/*/CSIStorageCapacity
     preconditions:
       all:
-      - key: "{{ request.operation || 'BACKGROUND' }}"
+      - key: {{"{{ request.operation || 'BACKGROUND' }}"}}
         operator: NotEquals
         value: DELETE
-      - key: "{{request.object.apiVersion}}"
+      - key: {{"{{request.object.apiVersion}}"}}
         operator: AnyIn
         value:
         - storage.k8s.io/v1beta1

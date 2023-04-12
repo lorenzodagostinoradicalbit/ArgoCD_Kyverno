@@ -15,8 +15,6 @@ spec:
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing
     targetRevision: {{ .Values.global.targetRevision | quote }}
     path: components/kyverno-policies
-    directory:
-      recurse: true
     helm:
       values: |
         failurePolicy: {{ .Values.kyverno.failurePolicy | default "Fail" }}
