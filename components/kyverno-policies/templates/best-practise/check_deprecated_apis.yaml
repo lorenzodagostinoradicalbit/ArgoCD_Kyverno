@@ -55,10 +55,10 @@ spec:
           - storage.k8s.io/*/VolumeAttachment
     preconditions:
       all:
-      - key: "{{ request.operation || 'BACKGROUND' }}"
+      - key: {{` "{{ request.operation || 'BACKGROUND' }}" `}}
         operator: NotEquals
         value: DELETE
-      - key: "{{request.object.apiVersion}}"
+      - key: {{` "{{request.object.apiVersion}}" `}}
         operator: AnyIn
         value:
         - admissionregistration.k8s.io/v1beta1
@@ -75,7 +75,7 @@ spec:
         - storage.k8s.io/v1beta1
     validate:
       message: >-
-        {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.22.
+        - {{` {{ request.object.apiVersion }} `}}/{{` {{ request.object.kind }} `}} is deprecated and will be removed in v1.22.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
   - name: validate-v1-25-removals
@@ -92,10 +92,10 @@ spec:
           - node.k8s.io/*/RuntimeClass
     preconditions:
       all:
-      - key: "{{ request.operation || 'BACKGROUND' }}"
+      - key: {{` "{{ request.operation || 'BACKGROUND' }}" `}}
         operator: NotEquals
         value: DELETE
-      - key: "{{request.object.apiVersion}}"
+      - key: {{` "{{request.object.apiVersion}}" `}}
         operator: AnyIn
         value:
         - batch/v1beta1
@@ -105,7 +105,7 @@ spec:
         - node.k8s.io/v1beta1
     validate:
       message: >-
-        {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.25.
+        - {{` {{ request.object.apiVersion } `}}/{{` {{ request.object.kind }} `}} is deprecated and will be removed in v1.25.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
   - name: validate-v1-26-removals
@@ -118,17 +118,17 @@ spec:
           - autoscaling/*/HorizontalPodAutoscaler
     preconditions:
       all:
-      - key: "{{ request.operation || 'BACKGROUND' }}"
+      - key: {{` "{{ request.operation || 'BACKGROUND' }}" `}}
         operator: NotEquals
         value: DELETE
-      - key: "{{request.object.apiVersion}}"
+      - key: {{` "{{request.object.apiVersion}}" `}}
         operator: AnyIn
         value:
         - flowcontrol.apiserver.k8s.io/v1beta1
         - autoscaling/v2beta2
     validate:
       message: >-
-        {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.26.
+        - {{` {{ request.object.apiVersion }} `}}/{{` {{ request.object.kind }} `}} is deprecated and will be removed in v1.26.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
   - name: validate-v1-27-removals
@@ -139,16 +139,16 @@ spec:
           - storage.k8s.io/*/CSIStorageCapacity
     preconditions:
       all:
-      - key: {{"{{ request.operation || 'BACKGROUND' }}"}}
+      - key: {{` "{{ request.operation || 'BACKGROUND' }}" `}}
         operator: NotEquals
         value: DELETE
-      - key: {{"{{request.object.apiVersion}}"}}
+      - key: {{` "{{request.object.apiVersion}}" `}}
         operator: AnyIn
         value:
         - storage.k8s.io/v1beta1
     validate:
       message: >-
-        {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.27.
+        - {{` {{ request.object.apiVersion }} `}}/{{` {{ request.object.kind }} `}} is deprecated and will be removed in v1.27.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
   - name: validate-v1-29-removals
@@ -160,16 +160,16 @@ spec:
           - flowcontrol.apiserver.k8s.io/*/PriorityLevelConfiguration
     preconditions:
       all:
-      - key: "{{ request.operation || 'BACKGROUND' }}"
+      - key: {{` "{{ request.operation || 'BACKGROUND' }}" `}}
         operator: NotEquals
         value: DELETE
-      - key: "{{request.object.apiVersion}}"
+      - key: {{` "{{request.object.apiVersion}}" `}}
         operator: AnyIn
         value:
         - flowcontrol.apiserver.k8s.io/v1beta2
     validate:
       message: >-
-        {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.29.
+        - {{` {{ request.object.apiVersion }} `}}/{{` {{ request.object.kind }} `}} is deprecated and will be removed in v1.29.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
 {{- end }}
