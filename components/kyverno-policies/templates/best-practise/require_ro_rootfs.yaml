@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -15,6 +16,7 @@ metadata:
       host system. This policy validates that containers define a securityContext
       with `readOnlyRootFilesystem: true`.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -31,3 +33,4 @@ spec:
           containers:
           - securityContext:
               readOnlyRootFilesystem: true
+{{- end }}

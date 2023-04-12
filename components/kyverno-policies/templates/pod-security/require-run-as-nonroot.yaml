@@ -1,3 +1,4 @@
+{{- if .Values.policies.podSecurity }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -14,6 +15,7 @@ metadata:
       `runAsNonRoot` is set to `true`. A known issue prevents a policy such as this
       using `anyPattern` from being persisted properly in Kubernetes 1.23.0-1.23.2.      
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -52,3 +54,4 @@ spec:
             containers:
             - securityContext:
                 runAsNonRoot: "true"
+{{- end }}

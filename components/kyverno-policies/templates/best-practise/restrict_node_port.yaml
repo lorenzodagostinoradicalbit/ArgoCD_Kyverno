@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -15,6 +16,7 @@ metadata:
       with additional upstream security checks. This policy validates that any new Services
       do not use the `NodePort` type.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -29,3 +31,4 @@ spec:
       pattern:
         spec:
           =(type): "!NodePort"
+{{- end }}

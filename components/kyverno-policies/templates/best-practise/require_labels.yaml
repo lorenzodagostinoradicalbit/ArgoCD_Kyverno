@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -14,6 +15,7 @@ metadata:
       all tools can understand. The recommended labels describe applications in a way that can be
       queried. This policy validates that the label `app.kubernetes.io/name` is specified with some value.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -29,3 +31,4 @@ spec:
         metadata:
           labels:
             app.kubernetes.io/name: "?*"
+{{- end }}

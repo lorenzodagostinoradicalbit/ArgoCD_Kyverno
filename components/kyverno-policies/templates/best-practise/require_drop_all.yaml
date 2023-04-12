@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -15,6 +16,7 @@ metadata:
       ability. Note that this policy also illustrates how to cover drop entries in any
       case although this may not strictly conform to the Pod Security Standards.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -40,3 +42,4 @@ spec:
                 - key: ALL
                   operator: AnyNotIn
                   value: "{{ element.securityContext.capabilities.drop[].to_upper(@) || `[]` }}"
+{{- end }}

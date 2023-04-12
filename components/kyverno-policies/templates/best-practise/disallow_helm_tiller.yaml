@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -15,6 +16,7 @@ metadata:
       Tiller for these reasons. This policy validates that there is not an image
       containing the name `tiller`.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -31,3 +33,4 @@ spec:
             containers:
               - name: "*"
                 image: "!*tiller*"
+{{- end }}

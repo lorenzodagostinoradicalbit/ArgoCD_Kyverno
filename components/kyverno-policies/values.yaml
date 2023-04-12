@@ -1,0 +1,5 @@
+failurePolicy: Ignore
+policies:
+  argo: true
+  bestPractise: true
+  podSecurity: true

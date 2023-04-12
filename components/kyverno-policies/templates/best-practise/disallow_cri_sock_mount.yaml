@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -14,6 +15,7 @@ metadata:
       outside of Kubernetes, and hence should not be allowed. This policy validates that
       the sockets used for CRI engines Docker, Containerd, and CRI-O are not used.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -56,3 +58,4 @@ spec:
           =(volumes):
             - =(hostPath):
                 path: "!/var/run/crio.sock"
+{{- end }}

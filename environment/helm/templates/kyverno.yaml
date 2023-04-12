@@ -26,6 +26,8 @@ spec:
           targetRevision: {{ .Values.global.targetRevision | quote }}
         kyverno:
           enabled: {{ .Values.kyverno.enabled | default false }}
+          failurePolicy: {{ .Values.kyverno.failurePolicy | default "Fail" }}
+          policies: {{ toYaml .Values.kyverno.policies | nindent 12 }}
           engine:
             highAvailability:
               enabled: {{ .Values.kyverno.engine.highAvailability.enabled }}

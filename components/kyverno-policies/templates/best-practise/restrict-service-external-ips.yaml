@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -14,6 +15,7 @@ metadata:
       See: https://github.com/kyverno/kyverno/issues/1367. This policy validates
       that the `externalIPs` field is not set on a Service.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -31,3 +33,4 @@ spec:
           # you can alternatively restrict to a known set of addresses using:
           #     =(externalIPs): ["37.10.11.53", "153.10.20.1"]
           X(externalIPs): "null"
+{{- end }}

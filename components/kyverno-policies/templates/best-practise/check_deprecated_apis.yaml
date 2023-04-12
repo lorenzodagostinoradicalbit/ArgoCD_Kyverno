@@ -1,3 +1,4 @@
+{{- if .Values.policies.bestPractise }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
@@ -21,6 +22,7 @@ metadata:
       so therefore the validate-v1-25-removals rule may not completely work on 1.25+.
       This policy requires Kyverno v1.7.4+ to function properly.
 spec:
+  failurePolicy: {{ .Values.failurePolicy | default "Fail" }}
   validationFailureAction: audit
   background: true
   rules:
@@ -170,4 +172,4 @@ spec:
         {{ request.object.apiVersion }}/{{ request.object.kind }} is deprecated and will be removed in v1.29.
         See: https://kubernetes.io/docs/reference/using-api/deprecation-guide/
       deny: {}
-  
+{{- end }}
