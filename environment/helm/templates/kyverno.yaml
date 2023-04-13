@@ -29,6 +29,7 @@ spec:
           failurePolicy: {{ .Values.kyverno.failurePolicy | default "Fail" }}
           policies: {{ toYaml .Values.kyverno.policies | nindent 12 }}
           engine:
+            memory: {{ .Values.kyverno.engine.memory }}
             highAvailability:
               enabled: {{ .Values.kyverno.engine.highAvailability.enabled }}
           reportsControl:

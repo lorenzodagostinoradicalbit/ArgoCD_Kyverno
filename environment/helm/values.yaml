@@ -15,6 +15,7 @@ kyverno:
     bestPractise: true
     podSecurity: true
   engine:
+    memory: 384Mib
     highAvailability:
       enabled: true
   reportsControl:

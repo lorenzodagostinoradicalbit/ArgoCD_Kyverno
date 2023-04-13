@@ -22,11 +22,13 @@ spec:
         {{- else }}
         replicaCount: {{ .Values.kyverno.engine.replicaCount | default 1 }}
         {{- end }}
+        {{- if .Values.kyverno.engine.memory }}
         resources:
           limits:
-            memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }}
+            memory: {{ .Values.kyverno.engine.memory }}
           requests:
-            memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }}
+            memory: {{ .Values.kyverno.engine.memory }}
+        {{- end }}
   syncPolicy:
     automated:
       prune: true
