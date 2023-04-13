@@ -24,9 +24,9 @@ spec:
         {{- end }}
         resources:
           limits:
-            memory: {{ .Values.kyverno.engine.memoryLimit }}
+            memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }}
           requests:
-            memory: {{ .Values.kyverno.engine.memoryLimit }}
+            memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }}
   syncPolicy:
     automated:
       prune: true
