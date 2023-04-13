@@ -10,6 +10,7 @@ kyverno:
     podSecurity: true
   engine:
     targetRevision: 2.7.2
+    memoryLimit: "2Gi"
     # highAvailability doc: https://kyverno.io/docs/installation/#high-availability
     highAvailability:
       enabled: false
