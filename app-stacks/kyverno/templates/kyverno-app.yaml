@@ -22,13 +22,11 @@ spec:
         {{- else }}
         replicaCount: {{ .Values.kyverno.engine.replicaCount | default 1 }}
         {{- end }}
-        admissionController:
-          container:
-            resources:
-              limits:
-                memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }}
-              requests:
-                memory: {{ .Values.kyverno.engine.memoryLimit | default "384Mi" }} 
+        resources:
+          limits:
+            memory: {{ .Values.kyverno.engine.memoryLimit }}
+          requests:
+            memory: {{ .Values.kyverno.engine.memoryLimit }}
   syncPolicy:
     automated:
       prune: true
