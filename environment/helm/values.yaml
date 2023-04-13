@@ -16,7 +16,7 @@ kyverno:
     podSecurity: true
   engine:
     highAvailability:
-      enabled: false
+      enabled: true
   reportsControl:
     enabled: true
     ui:
