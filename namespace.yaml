@@ -1,6 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: argocd
-  labels:
-    istio-injection: enabled
+  name: prova-namespace
