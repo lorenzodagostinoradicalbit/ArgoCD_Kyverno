@@ -3,7 +3,7 @@ kind: Application
 metadata:
   creationTimestamp: "2023-05-24T09:28:22Z"
   generation: 50
-  name: prova
+  name: environment
   namespace: argocd
   resourceVersion: "25312"
   uid: f526fa92-4bb8-463d-9411-509296385603
@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: /environment
+    path: environment
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
     targetRevision: main
   syncPolicy:
