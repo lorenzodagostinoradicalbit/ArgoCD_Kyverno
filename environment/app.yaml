@@ -1,12 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: "2023-05-24T09:28:22Z"
-  generation: 48
   name: prova
   namespace: argocd
-  resourceVersion: "25231"
-  uid: f526fa92-4bb8-463d-9411-509296385603
 spec:
   destination:
     namespace: prova-namespace
