@@ -14,10 +14,9 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
     managedNamespaceMetadata:
       labels:
         k8s.io.prova: enabled
     syncOptions:
-    - CreateNamespace=false
+    - CreateNamespace=true
