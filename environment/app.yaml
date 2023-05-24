@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: namespace-test
+    path: environment/namespace-test
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
     targetRevision: main
   syncPolicy:
