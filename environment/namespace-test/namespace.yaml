@@ -1,4 +1,4 @@
-kind: Namespace
+kind: 
 apiVersion: v1
 metadata:
   name: namespace-test
