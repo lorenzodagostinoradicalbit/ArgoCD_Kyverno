@@ -15,6 +15,7 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
+      prue: false
     managedNamespaceMetadata:
       labels:
         k8s.io.prova: enabled
