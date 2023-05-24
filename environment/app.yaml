@@ -20,4 +20,4 @@ spec:
       labels:
         k8s.io.prova: enabled
     syncOptions:
-    - CreateNamespace=false
+    - CreateNamespace=true
