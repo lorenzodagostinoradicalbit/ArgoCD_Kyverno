@@ -12,6 +12,9 @@ spec:
     path: environment/namespace-test
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
     targetRevision: main
+    helm:
+      values: |
+        createNamespace: false
   syncPolicy:
     automated:
       selfHeal: true
