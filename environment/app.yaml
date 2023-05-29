@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     helm:
       values: |
-        createNamespace: false
+        createNamespace: true
   syncPolicy:
     automated:
       selfHeal: true
