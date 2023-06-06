@@ -14,13 +14,13 @@ spec:
     targetRevision: main
     helm:
       values: |
-        createNamespace: false
+        createNamespace: true
   syncPolicy:
     automated:
       selfHeal: true
-      prune: false
+      prune: true
     managedNamespaceMetadata:
       labels:
         k8s.io.prova: enabled
     syncOptions:
-    - CreateNamespace=true
+    - CreateNamespace=false
