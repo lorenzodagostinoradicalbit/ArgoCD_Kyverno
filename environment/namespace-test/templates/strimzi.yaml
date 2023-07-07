@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    path: environment/strimzi
+    path: environment/strimzi-cluster-operator
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
   destination:
     server: https://kubernetes.default.svc
