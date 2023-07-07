@@ -8,9 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://bitbucket.org/weareradicalbit/argocd-envs.git
-    targetRevision: "HEAD"
-    path: components/strimzi-cluster-operator
+    repoURL: https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.29.0/strimzi-cluster-operator-0.29.0.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kafka
