@@ -1,6 +1,0 @@
-{{- if .Values.createNamespace }}
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: namespace-test
-{{- end }}
