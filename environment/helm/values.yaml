@@ -5,3 +5,13 @@ cert-manager: #defined by either the name or alias of your dependency in Chart.y
 kube-prometheus-stack:
   fullnameOverride: prometheus
   namespaceOverride: monitoring
+
+grafana:
+  image:
+    tag: 9.0.8
+  enabled: true
+  namespaceOverride: monitoring
+  fullnameOverride: grafana
+  # service monitor
+  serviceMonitor:
+    enabled: true
