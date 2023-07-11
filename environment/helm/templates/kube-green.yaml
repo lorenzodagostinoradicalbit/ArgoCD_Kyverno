@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-green-stack
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
+    targetRevision: argo-version-switch
+    path: components/kube-green/installation
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-green
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

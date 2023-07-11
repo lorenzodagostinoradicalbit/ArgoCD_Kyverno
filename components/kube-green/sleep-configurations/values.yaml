@@ -1,0 +1,21 @@
+sleepConfigs:
+  #  - name: dummy-config
+  #    enabled: true
+  #    timeZone: "Europe/Rome" # this is also the default, if not specified
+  #    weekdays: "1-5"
+  #    sleepAt: "23:50"
+  #    durationSeconds: 300
+  #    namespaces:
+  #    - a
+  #    - b
+  #    - c
+  #  - name: dummy-config-2
+  #    enabled: true
+  #    timeZone: "Europe/Rome" # this is also the default, if not specified
+  #    weekdays: "1-3"
+  #    sleepAt: "21:50"
+  #    durationSeconds: 300
+  #    namespaces:
+  #    - d
+  #    - e
+  #    - f

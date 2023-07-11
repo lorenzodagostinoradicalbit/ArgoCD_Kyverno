@@ -1,0 +1,24 @@
+{{- range $sleepValues := .Values.sleepConfigs }}
+  {{- $sleepEnabled := $sleepValues.enabled | default false }}
+  {{- if $sleepEnabled }}
+    {{- $weekdays := required "weekDays is a required field" $sleepValues.weekdays }}
+    {{- $sleepAt := required "sleepAt is a required field" $sleepValues.sleepAt }}
+    {{- $namespaces := required "namespaces is a required field" $sleepValues.namespaces }}
+    {{- $name := required "name is a required field" $sleepValues.name }}
+    {{- $timeZone := $sleepValues.timeZone | default "Europe/Rome" }}
+    {{- $suspendCronJobs := $sleepValues.suspendCronJobs | default false }}
+    {{- range $namespace := $namespaces }}
+apiVersion: kube-green.com/v1alpha1
+kind: SleepInfo
+metadata:
+  name: {{ $name }}
+  namespace: {{ $namespace }}
+spec:
+  weekdays: {{ $weekdays | quote }}
+  sleepAt: {{ $sleepAt | quote  }}
+  timeZone: {{ $timeZone | quote }}
+  suspendCronJobs: {{ $suspendCronJobs }}
+---
+    {{- end }}
+  {{- end }}
+{{- end }}
