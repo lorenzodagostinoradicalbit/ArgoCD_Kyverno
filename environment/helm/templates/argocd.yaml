@@ -1,26 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prova
+  name: environment
   namespace: argocd
 spec:
   destination:
-    namespace: namespace-test
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: environment/namespace-test
+    path: components/argo-cd
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
-    targetRevision: main
-    helm:
-      values: |
-        createNamespace: false
+    targetRevision: argo-version-switch
   syncPolicy:
     automated:
-      selfHeal: true
       prune: true
-    managedNamespaceMetadata:
-      labels:
-        k8s.io.prova: enabled
-    syncOptions:
-    - CreateNamespace=true
+      selfHeal: true

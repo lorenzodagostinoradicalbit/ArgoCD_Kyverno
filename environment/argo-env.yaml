@@ -8,9 +8,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: environment
+    path: environment/helm
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
-    targetRevision: main
+    targetRevision: argo-version-switch
   syncPolicy:
     automated:
       prune: true
