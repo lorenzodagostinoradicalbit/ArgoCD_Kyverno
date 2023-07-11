@@ -22,4 +22,4 @@ spec:
       - CreateNamespace=true
     managedNamespaceMetadata:
       labels:
-        porco: dio
+        k8s.io.test: prova
