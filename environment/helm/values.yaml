@@ -1,3 +1,7 @@
 cert-manager: #defined by either the name or alias of your dependency in Chart.yaml
   namespace: kube-system
   installCRDs: true
+
+kube-prometheus-stack:
+  fullnameOverride: prometheus
+  namespaceOverride: monitoring
