@@ -5,5 +5,4 @@ resources:
 patchesStrategicMerge:
   - argocd-resources-patch.yaml
   - argocd-cm-patch.yaml
-  - argocd-notifications-secret-patch.yaml
   - argocd-notifications-resources-patch.yaml
