@@ -1,0 +1,72 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kafka
+resources:
+  - https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.28.0/strimzi-cluster-operator-0.28.0.yaml
+  - strimzi-cluster-operator-crb.yaml
+  - strimzi-cluster-operator-entity-operator-delegation-crb.yaml
+patchesJSON6902:
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: kafka
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator-kafka-broker-delegation
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: kafka
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator-kafka-client-delegation
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: kafka
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: RoleBinding
+      name: strimzi-cluster-operator
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: kafka
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: RoleBinding
+      name: strimzi-cluster-operator-entity-operator-delegation
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: kafka
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: strimzi-cluster-operator
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0
+        value:
+          name: STRIMZI_NAMESPACE
+          value: "*"
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/memory
+        value: 600Mi
+      - op: add
+        path: /spec/template/spec/containers/0/env/0
+        value:
+          name: STRIMZI_IMAGE_PULL_POLICY
+          value: Always
