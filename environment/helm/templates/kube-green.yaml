@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lorenzodagostinoradicalbit/ArgoCD_env_testing.git
-    targetRevision: argo-version-switch
+    targetRevision: HEAD
     path: components/kube-green/installation
   destination:
     server: https://kubernetes.default.svc
