@@ -9,6 +9,13 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
+  ignoreDifferences:
+    - group: apps
+      kind: StatefulSet
+      jsonPointers:
+        - /spec/persistentVolumeClaimRetentionPolicy
+        - /spec/persistentVolumeClaimRetentionPolicy/whenDeleted
+        - /spec/persistentVolumeClaimRetentionPolicy/whenScaled
   project: default
   source:
     path: components/monitoring/helm
@@ -20,3 +27,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true   
+    
