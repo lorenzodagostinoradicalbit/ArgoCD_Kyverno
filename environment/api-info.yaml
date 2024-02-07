@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "aaaasdfasdfaa"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: user:guest
+  definition:
+    ./openapi.json
