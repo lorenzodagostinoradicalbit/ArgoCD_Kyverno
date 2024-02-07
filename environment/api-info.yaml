@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "super-mega-app-1"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: user:guest
+  definition:
+    ./openapi.json
